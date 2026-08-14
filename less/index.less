@@ -1,0 +1,299 @@
+// out: ../css/
+@round: 15px;
+@font-size: 20px;
+@main-width: 300px;
+@control-height: 25px;
+@main-padding: 20px;
+@main-border: 2px;
+@box-gap: 10px;
+@cardbox-size: @main-width - 2 * @main-padding - 2 * @main-border;
+@card-size: (@cardbox-size / 2) - @box-gap * 2;
+@operator-size: 50px;
+@capacity-height: 40px;
+@main-height: @control-height + @font-size + @cardbox-size + @operator-size + @capacity-height + @box-gap * 5 + @main-padding * 2;
+@btn-height: 50px;
+@btn-width: 130px;
+
+.center() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.main {
+  .center();
+  width: @main-width;
+  height: @main-height;
+  border: @main-border solid #8cc63e;
+  border-radius: @round;
+  padding: @main-padding;
+
+  .start {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      text-align: center;
+    }
+
+    .btns {
+      display: flex;
+      margin-top: @box-gap * 5;
+      justify-content: center;
+    }
+
+    .btn-start {
+      padding: 0 @box-gap;
+      height: @btn-height;
+      border: 2px solid #38b547;
+      font-size: @font-size * 1.3;
+      text-align: center;
+      line-height: @btn-height;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #fff;
+
+      &:active {
+        background-color: #8cc63e;
+      }
+    }
+
+    .help {
+      margin-top: 20px;
+      height: 30px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 30px;
+      text-align: center;
+      color: #333;
+    }
+  }
+
+  .game {
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+
+
+    .back-index {
+      position: absolute;
+      top: -5px;
+      left: -10px;
+      width: 18px;
+      height: 18px;
+      // background-color: pink;
+      background-image: url(../images/back.png);
+      background-size: cover;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .control {
+      width: 100%;
+      height: @control-height;
+      display: flex;
+      justify-content: space-around;
+      font-size: @font-size;
+      line-height: @control-height;
+      margin-bottom: @box-gap;
+
+      .iconfont {
+        font-size: @control-height;
+        margin-right: 10px;
+      }
+    }
+
+    .catculation {
+      text-align: center;
+      font-size: @font-size;
+      margin-bottom: @box-gap;
+
+      &.normal {
+        color: #707070;
+      }
+
+      &.right {
+        color: #357d39;
+      }
+
+      &.wrong {
+        color: #fa4b4b;
+      }
+    }
+
+    .cardbox {
+      position: relative;
+      width: @cardbox-size;
+      height: @cardbox-size;
+      margin-bottom: @box-gap;
+      // border: 1px solid #000;
+
+      .card {
+        position: absolute;
+        width: @card-size;
+        height: @card-size;
+        border: 4px solid #38b547;
+        border-radius: @round;
+        font-size: 50px;
+        line-height: @card-size - 8px;
+        text-align: center;
+        cursor: pointer;
+        background-color: #fff;
+        transition: transform 1000ms ease-in;
+        transform-origin: center;
+        // display: block !important;
+
+        &:disabled {
+          color: black;
+        }
+      }
+
+      .active {
+        background-color: #8cc63e;
+      }
+
+      .item1 {
+        top: @box-gap;
+        left: @box-gap;
+      }
+
+      .item2 {
+        top: @box-gap;
+        left: @cardbox-size - @box-gap - @card-size;
+      }
+
+      .item3 {
+        top: @cardbox-size - @box-gap - @card-size;
+        left: @box-gap;
+      }
+
+      .item4 {
+        top: @cardbox-size - @box-gap - @card-size;
+        left: @cardbox-size - @box-gap - @card-size;
+      }
+    }
+
+    .operatorbox {
+      width: 100%;
+      height: @operator-size;
+      display: flex;
+      padding: 0 20px;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: @box-gap;
+
+      .operator {
+        width: @operator-size;
+        height: @operator-size;
+        border: 2px solid #38b547;
+        text-align: center;
+        line-height: @operator-size;
+        font-size: 25px;
+        border-radius: 5px;
+        background-color: #fff;
+        cursor: pointer;
+
+        &:disabled {
+          background-color: #cccccc;
+          border-color: #a0a0a0;
+          cursor: not-allowed;
+        }
+
+        &.active {
+        background-color: #8cc63e;
+      }
+      }
+
+    }
+
+    .capacitybox {
+      padding: 0 60px;
+      width: 100%;
+      height: @capacity-height;
+      // border: 1px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .capacity {
+        width: 60px;
+        height: @capacity-height;
+        border: 2px solid #38b547;
+        font-size: @font-size;
+        text-align: center;
+        line-height: @capacity-height;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #fff;
+
+        &:disabled {
+          background-color: #cccccc;
+          border-color: #a0a0a0;
+          cursor: not-allowed;
+        }
+
+        &:active {
+          background-color: #8cc63e;
+        }
+      }
+    }
+  }
+
+  .end {
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+
+    .over {
+      font-size: @font-size;
+      text-align: center;
+    }
+
+    .btns {
+      display: flex;
+      margin-top: @box-gap * 5;
+      justify-content: space-evenly;
+
+      button {
+        padding: 0 @box-gap;
+        height: @btn-height;
+        border: 2px solid #38b547;
+        font-size: @font-size * 1.3;
+        text-align: center;
+        line-height: @btn-height;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #fff;
+
+        &:active {
+          background-color: #8cc63e;
+        }
+      }
+    }
+
+  }
+
+  .show {
+    display: flex;
+    flex-direction: column;
+  }
+}

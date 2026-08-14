@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ch-zn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24点计算</title>
+  <link rel="stylesheet" href="../iconfont/iconfont.css">
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="start show">
+      <h1>24点计算挑战</h1>
+      <div class="btns">
+        <button type="button" class="btn-start">开始挑战</button>
+      </div>
+      <div class="help">在<span>1分30秒</span>内计算出更多的24</div>
+    </div>
+
+    <div class="game">
+      <div class="back-index"></div>
+      <div class="control">
+        <div class="timebox">
+          <span class="iconfont icon-houxu_shijian"></span>
+          <span class="timetext">00:25</span>
+        </div>
+        <div class="countbox">
+          <span class="iconfont icon-dui"></span>
+          <span class="right-text">0</span>
+        </div>
+      </div>
+      <!-- 三种状态：normal right wrong -->
+      <div class="catculation">=24</div>
+      <div class="cardbox">
+        <button class="card item1" data-id="1">1</button>
+        <button class="card item2" data-id="2">2</button>
+        <button class="card item3" data-id="3">3</button>
+        <button class="card item4" data-id="4">4</button>
+      </div>
+      <div class="operatorbox">
+        <button class="operator" data-id="1">+</button>
+        <button class="operator" data-id="2">−</button>
+        <button class="operator" data-id="3">×</button>
+        <button class="operator" data-id="4">÷</button>
+      </div>
+      <div class="capacitybox">
+        <button type="button" class="capacity iconfont icon-chehui revocation"></button>
+        <button type="button" class="capacity iconfont icon-zhonglai reset"></button>
+      </div>
+    </div>
+
+    <div class="end">
+      <div class="over">您在3分钟中内答对了10道题</div>
+      <div class="btns">
+        <button type="button" class="btn-back ">返回</button>
+        <button type="button" class="btn-again ">重新挑战</button>
+      </div>
+    </div>
+  </div>
+  <script src="../js/index.js"></script>
+</body>
+
+</html>

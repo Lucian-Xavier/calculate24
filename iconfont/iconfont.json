@@ -1,0 +1,37 @@
+{
+  "id": "5216395",
+  "name": "catculate24",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1111363",
+      "name": "对",
+      "font_class": "dui",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "3068280",
+      "name": "重来",
+      "font_class": "zhonglai",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "7853558",
+      "name": "时间",
+      "font_class": "houxu_shijian",
+      "unicode": "e6c4",
+      "unicode_decimal": 59076
+    },
+    {
+      "icon_id": "22334226",
+      "name": "撤回",
+      "font_class": "chehui",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    }
+  ]
+}
