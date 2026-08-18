@@ -7,12 +7,16 @@
 @main-border: 2px;
 @box-gap: 10px;
 @cardbox-size: @main-width - 2 * @main-padding - 2 * @main-border;
+@cardbox-size-true: @cardbox-size - @box-gap * 2;
 @card-size: (@cardbox-size / 2) - @box-gap * 2;
 @operator-size: 50px;
 @capacity-height: 40px;
 @main-height: @control-height + @font-size + @cardbox-size + @operator-size + @capacity-height + @box-gap * 5 + @main-padding * 2;
 @btn-height: 50px;
 @btn-width: 130px;
+@bgc-color: #ebffd7;
+@bd-color: #82f0f9;
+
 
 .center() {
   position: absolute;
@@ -36,7 +40,7 @@ body {
   .center();
   width: @main-width;
   height: @main-height;
-  border: @main-border solid #8cc63e;
+  border: @main-border solid @bd-color;
   border-radius: @round;
   padding: @main-padding;
 
@@ -61,7 +65,7 @@ body {
     .btn-start {
       padding: 0 @box-gap;
       height: @btn-height;
-      border: 2px solid #38b547;
+      border: 2px solid @bd-color;
       font-size: @font-size * 1.3;
       text-align: center;
       line-height: @btn-height;
@@ -70,7 +74,7 @@ body {
       background-color: #fff;
 
       &:active {
-        background-color: #8cc63e;
+        background-color: @bgc-color;
       }
     }
 
@@ -141,53 +145,57 @@ body {
 
     .cardbox {
       position: relative;
-      width: @cardbox-size;
-      height: @cardbox-size;
+      width: @cardbox-size-true;
+      height:@cardbox-size-true;
       margin-bottom: @box-gap;
+      margin-left: @box-gap;
       // border: 1px solid #000;
 
       .card {
         position: absolute;
         width: @card-size;
         height: @card-size;
-        border: 4px solid #38b547;
+        border: 4px solid @bd-color;
         border-radius: @round;
         font-size: 50px;
         line-height: @card-size - 8px;
         text-align: center;
         cursor: pointer;
         background-color: #fff;
-        transition: transform 1000ms ease-in;
         transform-origin: center;
         // display: block !important;
 
         &:disabled {
           color: black;
         }
-      }
 
-      .active {
-        background-color: #8cc63e;
+        &.active {
+          background-color: @bgc-color;
+        }
+
+        &.hidden {
+          display: none;
+        }
       }
 
       .item1 {
-        top: @box-gap;
-        left: @box-gap;
+        top: 0;
+        left: 0;
       }
 
       .item2 {
-        top: @box-gap;
-        left: @cardbox-size - @box-gap - @card-size;
+        top: 0;
+        left: @cardbox-size-true - @card-size;
       }
 
       .item3 {
-        top: @cardbox-size - @box-gap - @card-size;
-        left: @box-gap;
+        top: @cardbox-size-true - @card-size;
+        left: 0;
       }
 
       .item4 {
-        top: @cardbox-size - @box-gap - @card-size;
-        left: @cardbox-size - @box-gap - @card-size;
+        top: @cardbox-size-true - @card-size;
+        left: @cardbox-size-true - @card-size;
       }
     }
 
@@ -203,7 +211,7 @@ body {
       .operator {
         width: @operator-size;
         height: @operator-size;
-        border: 2px solid #38b547;
+        border: 2px solid @bd-color;
         text-align: center;
         line-height: @operator-size;
         font-size: 25px;
@@ -218,7 +226,7 @@ body {
         }
 
         &.active {
-        background-color: #8cc63e;
+        background-color: @bgc-color;
       }
       }
 
@@ -236,7 +244,7 @@ body {
       .capacity {
         width: 60px;
         height: @capacity-height;
-        border: 2px solid #38b547;
+        border: 2px solid @bd-color;
         font-size: @font-size;
         text-align: center;
         line-height: @capacity-height;
@@ -249,10 +257,10 @@ body {
           border-color: #a0a0a0;
           cursor: not-allowed;
         }
+      }
 
-        &:active {
-          background-color: #8cc63e;
-        }
+      .reset:active {
+        background-color: @bgc-color;
       }
     }
   }
@@ -264,7 +272,7 @@ body {
     justify-content: center;
 
     .over {
-      font-size: @font-size;
+      font-size: 18px;
       text-align: center;
     }
 
@@ -276,7 +284,7 @@ body {
       button {
         padding: 0 @box-gap;
         height: @btn-height;
-        border: 2px solid #38b547;
+        border: 2px solid @bd-color;
         font-size: @font-size * 1.3;
         text-align: center;
         line-height: @btn-height;
@@ -285,7 +293,7 @@ body {
         background-color: #fff;
 
         &:active {
-          background-color: #8cc63e;
+          background-color: @bgc-color;
         }
       }
     }
